@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: do-kubernetes-sample-app
+  namespace: cwex3
+  labels:
+    app: do-kubernetes-sample-app
+spec:
+  # spec.type field is responsible for the behavior of the service
+  # a ClusterIP is only reachable from within the cluster
+  # this is the default spec.type for a Service
+  type: ClusterIP
+  # these are the ports exposed by the Pod's containers that
+  # this Service needs to expose
+  ports:
+    - port: 80
+      # the Pod has a single container which exposes port 80, named http
+      # so match that here:
+      targetPort: http
+      name: http
+  # spec.selector is the label selector criteria that should be
+  # used when picking the pods to be exposed by this service
+  # match the label with the one defined in the deployment yaml
+  selector:
+    app: do-kubernetes-sample-app

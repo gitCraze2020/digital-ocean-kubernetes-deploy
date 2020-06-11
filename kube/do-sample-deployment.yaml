@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+# above: kubernetes deployments are from the API group apps
+kind: Deployment
+metadata:
+  name: do-kubernetes-sample-app
+  namespace: cwex3
+  labels:
+    app: do-kubernetes-sample-app
+#specify/represent the behavior specification of the deployment
+spec:
+  replicas: 1
+  # the deployment must know which pods it's responsible for
+  # the spec.selector field provides that information
+  # in this case the deployment will be responsible for all pods
+  # with tags app=do-kubernetes-sample-app
+  selector:
+    matchLabels:
+      app: do-kubernetes-sample-app
+  # the spec.template field contains the details of the Pod
+  # which this deployment will create
+  template:
+    metadata:
+      labels:
+        app: do-kubernetes-sample-app
+    # spec.template.spec is the specification of the Pod itself.
+    # in this case it contains a single container called 
+    # do-kubernetes-sample-app
+    # the image of that container is the image previously
+    # built and pushed to my dockerhub account's storage
+    spec:
+      containers:
+        - name: do-kubernetes-sample-app
+          image: dockercraze/do-kubernetes-sample-app:latest
+          ports:
+            # tells kubernetes that this container exposes port 80
+            # and give this port the name http
+            - containerPort: 80
+              name: http
+              # to actually access the port exposed by this Deployment:
+              # create a Service
+              # see do-sample-service.yaml
+
+
