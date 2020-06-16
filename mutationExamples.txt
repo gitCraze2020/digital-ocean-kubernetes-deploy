@@ -1,0 +1,54 @@
+curl -X POST -H "Content-Type:application/json" -H "Authorization:xxxxx" 'https://api.monday.com/v2' \
+-d '{"query" : "
+
+mutation($name:String!, $columns:JSON!){
+  create_item(item_name:$name, board_id:162169280, column_values:$columns){
+    name
+  }
+}",
+ "variables" : "{\"name\" : \"This is a var\", \"columns\" : \"{\\\"status\\\" : {\\\"index\\\" : 4}}\"}"}'
+
+
+mutation mutAddRepo ($input: CreateRepositoryInput!) { 
+  createRepository (input: $input) {
+      clientMutationId
+  }   
+}
+{
+  "input": {
+    "clientMutationId": "cwex3",
+    "name": "digital-ocean-kubernetes-deploy",
+    "visibility": "PUBLIC"    
+  }
+}
+
+
+
+curl -X POST \
+https://{ store }.myshopify.com/admin/api/2020-04/graphql.json  \
+-H 'Content-Type: application/json' \
+-H 'x-shopify-access-token: { access_token }' \
+-d '{
+  "query":
+  "mutation($input: CustomerInput!) {
+     customerCreate(input: $input) {
+       customer {
+         id
+         displayName
+       }
+       userErrors {
+         field
+         message
+       }
+     }
+  }",
+  "variables": {
+    "input": {
+      "firstName": "Greg",
+      "lastName": "Variables",
+      "email": "gregvariables@teleworm.us""
+    }
+  }
+}'
+
+

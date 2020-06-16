@@ -1,0 +1,55 @@
+To install, use sudo because some libs want to get installed in /usr/bin/lcl
+sudo npm install graphqurl
+
+# install graphqurl from github !
+# get at github.com/hasura/graphqurl
+# sudo npm install graphqurl
+Then: add this token to package.json file, after 'description':
+         "files":"["*"],
+in: /usr/local/lib/node_modules/graphqurl/package.json
+
+
+
+CLI
+Generic example:
+
+gq \
+     https://my-graphql-endpoint/graphql \
+     -H 'Authorization: Bearer <token>' \
+     -H 'X-Another-Header: another-header-value' \
+     -v 'variable1=value1' \
+     -v 'variable2=value2' \
+     -q 'query { table { column } }'
+Reading the query and variables from a file:
+
+gq \
+     https://my-graphql-endpoint/graphql \
+     -H 'Authorization: Bearer <token>' \
+     -H 'X-Another-Header: another-header-value' \
+     --variablesFile='./queryVariables.json' \
+     --queryFile='./query.gql
+Executing only a particular named query from a file that contains many queries:
+
+gq <endpoint> --queryFile ./queries.gql --name getItems
+
+
+SPECIFIC EXAMPLE
+
+gq  https://api.github.com/graphql -H 'Authorization: bearer 01067562876e4a604eb80ce8dd24cd1a5d016aee' --variablesFile='./queryVariables.json' --queryFile=./query.gql
+
+Where query.gql contains:
+mutation($input: CreateRepositoryInput!) {
+  createRepository (input: $input) {
+      clientMutationId
+  }
+}
+
+And queryVariables.json contains:
+{
+  "input": {
+    "clientMutationId": "cwex3",
+    "name": "digital-ocean-kubernetes-deploy",
+    "visibility": "PUBLIC"
+  }
+}
+
