@@ -21,7 +21,7 @@ TMP_GIT_URL="https://github.com/$TMP_GIT_USER_NAME/$TMP_REPO_NAME.git"
 # then: add this token to package.json file, after 'description':
 #         "files":"["*"],
 #  /usr/local/lib/node_modules/graphqurl/package.json
-#gq  https://api.github.com/graphql -H 'Authorization: bearer 01067562876e4a604eb80ce8dd24cd1a5d016aee' --variablesFile='./queryVariables.json' --queryFile=./query.gql
+#gq  https://api.github.com/graphql -H 'Authorization: bearer {token}' --variablesFile='./queryVariables.json' --queryFile=./query.gql
 #
 
 #write this to a file ./query.gql, remove the ## prefix:

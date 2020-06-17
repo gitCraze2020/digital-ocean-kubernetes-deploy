@@ -35,7 +35,7 @@ gq <endpoint> --queryFile ./queries.gql --name getItems
 
 SPECIFIC EXAMPLE
 
-gq  https://api.github.com/graphql -H 'Authorization: bearer 01067562876e4a604eb80ce8dd24cd1a5d016aee' --variablesFile='./queryVariables.json' --queryFile=./query.gql
+gq  https://api.github.com/graphql -H 'Authorization: bearer {token}' --variablesFile='./queryVariables.json' --queryFile=./query.gql
 
 Where query.gql contains:
 mutation($input: CreateRepositoryInput!) {

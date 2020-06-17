@@ -1,0 +1,5 @@
+1. set up repository on CircleCI
+go to https://circleci.com
+click Sign Up or login
+Sign-on same account as GitHub. use gitCraze2020
+
