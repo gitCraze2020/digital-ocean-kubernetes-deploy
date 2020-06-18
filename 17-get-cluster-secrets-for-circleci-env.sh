@@ -59,8 +59,9 @@ TMP_GIT_USER_NAME=gitCraze2020
 TMP_REPO_NAME=digital-ocean-kubernetes-deploy
 TMP_APP_NAME=do-kubernetes-sample-app
 
-# add this content to new config ./.circleci/config.yaml
+# add this content to new config ./.circleci/config.yml
 # \$VAR needs to be $VAR in the output
+# yes, the extension is yml, it seems CircleCI requires exactly that name
 #
 # This sets up a Workflow with a single job, called build, that runs for
 # every commit to the master branch. This job is using the image
@@ -70,7 +71,7 @@ TMP_APP_NAME=do-kubernetes-sample-app
 #
 # Run these in the project source root folder, create folder:
 mkdir .circleci
-TMP_FILE_NAME=.circleci/config.yaml
+TMP_FILE_NAME=.circleci/config.yml
 cat > $TMP_FILE_NAME << EOL
 #################################################################################
 version: 2.1 jobs:
