@@ -101,7 +101,13 @@ jobs:
           name: Push Docker Image
           command: |
             echo "\$DOCKERHUB_PASS" | docker login -u "\$DOCKERHUB_USERNAME" --password-stdin
+            # circle_sha1 is a special default variable, contains the hash of the commit
+            # that it is building. Used here to ensure a new unique specific image
+            docker tag \$IMAGE_NAME:latest \$IMAGE_NAME:\$CIRCLE_SHA1
             docker push \$IMAGE_NAME:latest
+            docker push \$IMAGE_NAME:\$CICRLE_SHA1
+            # next, edit kube/do-sample-deployment.yml
+            # which needs to point to the same image sing this circleci variable
 workflows:
   version: 2
   build-master:

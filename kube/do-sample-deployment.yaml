@@ -30,7 +30,12 @@ spec:
     spec:
       containers:
         - name: do-kubernetes-sample-app
-          image: dockercraze/do-kubernetes-sample-app:latest
+          # use circleci variable commit_sha1 which will be substituted in
+          # a step right prior to calling kubectl - and this deployment.yaml
+          # will be re-written 
+          # the $commit_sha1 value is produced by circleCI
+          # through circleci pipeline, it contains the hash of the commit it built
+          image: dockercraze/do-kubernetes-sample-app:$COMMIT_SHA1
           ports:
             # tells kubernetes that this container exposes port 80
             # and give this port the name http
