@@ -93,7 +93,7 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t $IMAGE_NAME:latest .
+            docker build -t \$IMAGE_NAME:latest .
       # last run step pushes the image to DockerHub, possible now that the
       # login authentication is made possible using the environment variables set earlier
       # in the circleci project settings
