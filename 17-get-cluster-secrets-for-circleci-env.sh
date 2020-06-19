@@ -105,7 +105,7 @@ jobs:
             # that it is building. Used here to ensure a new unique specific image
             docker tag \$IMAGE_NAME:latest \$IMAGE_NAME:\$CIRCLE_SHA1
             docker push \$IMAGE_NAME:latest
-            docker push \$IMAGE_NAME:\$CICRLE_SHA1
+            docker push \$IMAGE_NAME:\$CIRCLE_SHA1
             # next, edit kube/do-sample-deployment.yml
             # which needs to point to the same image sing this circleci variable
       - run:
