@@ -74,7 +74,8 @@ mkdir .circleci
 TMP_FILE_NAME=.circleci/config.yml
 cat > $TMP_FILE_NAME << EOL
 #################################################################################
-version: 2.1 jobs:
+version: 2.1
+jobs:
   build:
     docker:
       - image: circleci/buildpack-deps:stretch
