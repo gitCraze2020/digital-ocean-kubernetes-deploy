@@ -55,7 +55,8 @@ cp $TMP_FILE_NAME ~/VM-shared-folder/CircleCI-do-sample-app/.
 grep -qF -- $TMP_FILE_NAME ".gitignore" || echo $TMP_FILE_NAME >> .gitignore
 
 
-TMP_GIT_USER_NAME=gitCraze2020
+#name must be lower case!
+TMP_GIT_USER_NAME=gitcraze2020
 TMP_REPO_NAME=digital-ocean-kubernetes-deploy
 TMP_APP_NAME=do-kubernetes-sample-app
 
