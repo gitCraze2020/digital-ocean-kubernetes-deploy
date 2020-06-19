@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/buildpack-deps:stretch
     environment:
-      IMAGE_NAME: "gitcraze2020/do-kubernetes-sample-app"
+      IMAGE_NAME: "dockercraze/do-kubernetes-sample-app"
     working_directory: ~/app
     steps:
       # retrieve the code from GitHub

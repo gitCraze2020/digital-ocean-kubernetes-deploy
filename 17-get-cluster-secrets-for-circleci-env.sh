@@ -56,8 +56,7 @@ grep -qF -- $TMP_FILE_NAME ".gitignore" || echo $TMP_FILE_NAME >> .gitignore
 
 
 #name must be lower case!
-TMP_GIT_USER_NAME=gitcraze2020
-TMP_REPO_NAME=digital-ocean-kubernetes-deploy
+TMP_DOCKERHUB_USERNAME=dockercraze
 TMP_APP_NAME=do-kubernetes-sample-app
 
 # add this content to new config ./.circleci/config.yml
@@ -81,7 +80,7 @@ jobs:
     docker:
       - image: circleci/buildpack-deps:stretch
     environment:
-      IMAGE_NAME: "$TMP_GIT_USER_NAME/$TMP_APP_NAME"
+      IMAGE_NAME: "$TMP_DOCKERHUB_USERNAME/$TMP_APP_NAME"
     working_directory: ~/app
     steps:
       # retrieve the code from GitHub
