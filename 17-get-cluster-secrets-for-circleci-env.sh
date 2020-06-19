@@ -1,5 +1,5 @@
 # the following env variables need to be set in the project on clusterci.com:
-#
+# 
 # DOCKERHUB_USERNAME and DOCKERHUB_PASS, these are relatively static
 #
 # KUBERNETES_TOKEN, KUBERNETES_SERVER, and KUBERNETES_CLUSTER_CERTIFICATE.
