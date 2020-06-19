@@ -29,7 +29,7 @@ mv ./kube/do-sample-deployment.yaml.out ./kube/do-sample-deployment.yaml
 # note, however, that I re-create my K8s cluster each day
 # and so the certificate is updated manually each day, I need to fix that situation
 # also, the namespace is not a fixed value in my current way of doing clusters...
-echo "$KUBERNETES_CLUSTER_CERTIFICATE" | base64 -- decode > cert.crt
+echo "$KUBERNETES_CLUSTER_CERTIFICATE" | base64 --decode > cert.crt
 
 # note: kubectl was installed by circleCI right before calling this script, see ./circleCI/config.yml
 ./kubectl --kubeconfig=/dev/null --server=$KUBERNETES_SERVER --certificate-authority=cert.crt --token=$KUBERNETES_TOKEN --namespace=cwex3 apply -f ./kube/
