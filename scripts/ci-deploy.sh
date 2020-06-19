@@ -14,16 +14,16 @@ set -e
 # using tool envsubst
 #
 # We must export the variable so it's available for envsubst
-export COMMIT_SHA1=$COMMIT_SHA1
 COMMIT_SHA1=$CIRCLE_SHA1
+export COMMIT_SHA1=$COMMIT_SHA1
 #
 
 # since the only way for envsubst to work on files is using input/output redirection,
 # it's not possible to do in-place substitution, so we need to save the output to another file
 # and overwrite the original with that one
 # note: envsubst was installed by circleCI right before calling this script, see ./circleCI/config.yml
-envsubst < ./kube/do-sample-deployment.yml > ./kube/do-sample-deployment.yml.out
-mv ./kube/do-sample-deployment.yml.out ./kube/do- sample-deployment.yml
+envsubst < ./kube/do-sample-deployment.yaml > ./kube/do-sample-deployment.yaml.out
+mv ./kube/do-sample-deployment.yaml.out ./kube/do-sample-deployment.yaml
 
 # this variable is set in the circleCI project's env variables:
 # note, however, that I re-create my K8s cluster each day
